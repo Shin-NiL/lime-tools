@@ -124,7 +124,7 @@ class HXProject {
 
 			case GCW0:
 				
-				platformType = PlatformType.WEB;
+				platformType = PlatformType.MOBILE;
 				architectures = [];
 				
 				defaultWindow.width = 320;
