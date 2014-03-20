@@ -48,6 +48,7 @@ class PlatformSetup {
 	private static var ubuntuSaucyPackages = "gcc-multilib g++-multilib libxext-dev";
 	private static var yumPackages = "gcc gcc-c++";
 	private static var tizenSDKURL = "https://developer.tizen.org/downloads/tizen-sdk";
+	private static var GCW0ToolchainURL = "http://www.gcw-zero.com/develop";
 	private static var webOSLinuxX64NovacomPath = "http://cdn.downloads.palm.com/sdkdownloads/3.0.4.669/sdkBinaries/palm-novacom_1.0.80_amd64.deb";
 	private static var webOSLinuxX86NovacomPath = "http://cdn.downloads.palm.com/sdkdownloads/3.0.4.669/sdkBinaries/palm-novacom_1.0.80_i386.deb";
 	private static var webOSLinuxSDKPath = "http://cdn.downloads.palm.com/sdkdownloads/3.0.5.676/sdkBinaries/palm-sdk_3.0.5-svn528736-pho676_i386.deb";
@@ -488,6 +489,10 @@ class PlatformSetup {
 				case "tizen":
 					
 					setupTizen ();
+
+				case "gcw0":
+
+					setupGCW0 ();
 				
 				case "webos":
 					
@@ -1589,7 +1594,7 @@ class PlatformSetup {
 			}
 			
 			createPath (path + "/lib");
-			var libs = [ "android", "bada-wac", "bada", "blackberry", "ios", "mac", "qt", "tizen", "webos", "wp7" ];
+			var libs = [ "android", "bada-wac", "bada", "blackberry", "ios", "mac", "qt", "tizen", "gcw0", "webos", "wp7" ];
 			
 			for (archive in childArchives) {
 				
@@ -1832,7 +1837,26 @@ class PlatformSetup {
 		}
 		
 	}
-	
+
+
+	public static function setupGCW0 ():Void {
+		
+		var answer = ask ("Download and install the GCW-Zero Toolchain?");
+		
+		if (answer == Yes || answer == Always) {
+			
+			Lib.println ("You may download the GCW-Zero Toolchain from the GCW-Zero website.");
+			var secondAnswer = ask ("Would you like to open the download page?");
+			
+			if (secondAnswer != No) {
+				
+				ProcessHelper.openURL (GCW0ToolchainURL);
+				
+			}
+			
+		}
+		
+	}	
 	
 	public static function setupWebOS ():Void {
 		

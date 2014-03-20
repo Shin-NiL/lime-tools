@@ -121,6 +121,15 @@ class HXProject {
 				defaultWindow.width = 0;
 				defaultWindow.height = 0;
 				defaultWindow.fps = 0;
+
+			case GCW0:
+				
+				platformType = PlatformType.WEB;
+				architectures = [];
+				
+				defaultWindow.width = 320;
+				defaultWindow.height = 240;
+				defaultWindow.fps = 0;
 			
 			case FIREFOXOS:
 				

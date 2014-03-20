@@ -15,5 +15,6 @@ enum Platform {
 	WINDOWS;
 	WEBOS;
 	EMSCRIPTEN;
+	GCW0;
 
 }
